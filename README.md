@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/node-chlog.png?downloads=true&stars=true)](https://nodei.co/npm/node-chlog/)
+
 Static blog generator that converts Markdown files into individual blog posts with paginated indices.
 
 Features
