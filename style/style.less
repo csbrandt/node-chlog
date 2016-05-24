@@ -1,0 +1,135 @@
+@import "./style/github.less";
+@import (inline) "./node_modules/sapo_ink/dist/css/ink.min.css";
+
+@headerClearanceMargin: 4em;
+
+html,
+body {
+   font-family: 'Open Sans', sans-serif;
+}
+small {
+   font-size: 90%;
+}
+article > pre {
+   background-color: rgb(247, 247, 247);
+   padding: 0.8em;
+   font-size: 0.8em;
+   border-radius: 3px;
+}
+.column-group > article[class*=large-] {
+   margin: 0 auto;
+   float: none;
+}
+.modal-dialog {
+   margin-top: @headerClearanceMargin;
+}
+.box {
+   position: relative;
+   border-radius: 2px;
+   font-size: 15px;
+
+   .spacer {
+      height: 0.8em;
+   }
+
+   small {
+      color: whitesmoke;
+   }
+}
+.content-preview {
+   h1 {
+      color: #ffffff;
+   }
+}
+.ink-navigation ul.menu.white {
+   background-color: rgb(240, 240, 240);
+}
+.posttile {
+   height: 300px;
+   margin-bottom: 1em;
+
+   &:hover {
+      text-decoration: none;
+   }
+
+   small {
+      position: absolute;
+      bottom: 0.5em;
+      left: 0.8em;
+   }
+
+   .box {
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 0.8em;
+
+      &:hover {
+         background: rgba(0, 0, 0, 0.2);
+      }
+   }
+}
+.image-screen {
+   position: relative;
+   height: 100%;
+}
+.image-screen-bgimage {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background-repeat: no-repeat;
+   background-origin: border-box;
+   background-position: 50% 50%;
+   background-size: cover;
+   background-clip: border-box;
+}
+header.ink-grid {
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-clip: border-box;
+   background-position: center;
+   height: 400px;
+   max-width: 1260px;
+   padding: 0;
+
+   .content-preview {
+      background: rgba(0,0,0,.4);
+      padding-bottom: .3em;
+
+      h1 {
+         margin: 0;
+      }
+   }
+
+   small {
+      position: absolute;
+      bottom: 0.8em;
+      background: rgba(0,0,0,.4);
+   }
+}
+#content {
+   padding-top: 1em;
+}
+
+#social {
+   a {
+      color: whitesmoke;
+      padding: 0.3em 0;
+      background: rgba(0, 0, 0, 0.4);
+
+      &:hover {
+         background: rgba(0, 0, 0, 0.2);
+      }
+   }
+
+   i {
+      padding: 0 0.2em;
+   }
+}
+#page {
+   padding-bottom: 2em;
+}
+.next-page {
+   padding-left: 1.5em;
+}
