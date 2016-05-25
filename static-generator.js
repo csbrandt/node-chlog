@@ -43,7 +43,7 @@ generator.generatePost = function(doc, settings) {
 
    marked(doc.input, function(err, content) {
       var $parsed = $('<div />').html(content);
-      $parsed.children().first('h1').remove();
+      $parsed.find('h1').first().remove();
       $parsed.find('p > img').first().parent().remove();
 
       doc.content = $parsed.html();
@@ -110,10 +110,10 @@ generator.generateContentPreview = function(post) {
    var content = marked(post.input);
    var $parsed = $('<div />').html(content);
    // pick the first header from this content
-   var firstHeaderHTML = $parsed.children().first('h1').wrap('<div />').parent().html();
+   var firstHeaderHTML = $parsed.find('h1').first().wrap('<div />').parent().html();
 
    // include image if present on post
-   var $firstImg = $parsed.children().first('img');
+   var $firstImg = $parsed.find('img').first();
 
    if ($firstImg.length) {
       post.bgImgUrl = $firstImg.attr('src');
