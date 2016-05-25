@@ -16,13 +16,13 @@ var filenames = fs.readdirSync(postsDir);
 var lessText = fs.readFileSync(process.cwd() + '/style/style.less', 'utf8');
 var posts = [];
 
-del.sync([publicDir + '**/*.html', publicDir + '**/*.css']);
+del.sync(['!' + publicDir + '.*', publicDir + '**/*.html', publicDir + '**/*.css']);
 
 filenames.forEach(function(post) {
    posts.push({
       _id: shortid.generate(),
       input: fs.readFileSync(postsDir + post, 'utf8'),
-      published: fs.statSync(postsDir + post).ctime
+      published: fs.statSync(postsDir + post).mtime
    });
 });
 
