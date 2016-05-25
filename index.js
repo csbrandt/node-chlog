@@ -8,15 +8,15 @@ var imagemin = require('imagemin');
 var imageminMozjpeg = require('imagemin-mozjpeg');
 var imageminPngquant = require('imagemin-pngquant');
 var Generator = require('./static-generator');
-var settings = require('./settings.json');
+var settings = require(process.cwd() + '/settings.json');
 require('./helpers');
-var publicDir = __dirname + '/public/';
-var postsDir = __dirname + '/post/';
+var publicDir = process.cwd() + '/public/';
+var postsDir = process.cwd() + '/post/';
 var filenames = fs.readdirSync(postsDir);
-var lessText = fs.readFileSync(__dirname + '/style/style.less', 'utf8');
+var lessText = fs.readFileSync(process.cwd() + '/style/style.less', 'utf8');
 var posts = [];
 
-del.sync(['public/**/*.html', 'public/**/*.css']);
+del.sync([publicDir + '**/*.html', publicDir + '**/*.css']);
 
 filenames.forEach(function(post) {
    posts.push({
@@ -35,7 +35,7 @@ for (var file in doc) {
    }));
 }
 
-imagemin(['image/*.{jpg,png}'], publicDir + 'image', {
+imagemin([process.cwd() + '/image/*.{jpg,png}'], publicDir + 'image', {
    plugins: [
       imageminMozjpeg({
          targa: true

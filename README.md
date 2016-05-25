@@ -23,7 +23,7 @@ Install dependencies:
 
 Run
 
-    node index.js
+    node ./node_modules/node-chlog/index.js
 
 Takes input from `post` folder, each Markdown file is treated as an individual post. Output is saved in `public`.
 
