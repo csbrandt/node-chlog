@@ -1,13 +1,13 @@
 {
    "host": "www.example.com",
    "title": "Example Site",
-   "description": "",
-   "author": "",
+   "description": "An example description",
+   "author": "author",
    "keywords": "",
    "robots": "",
    "email": "",
    "github": "",
    "twitter": "",
-   "colophon": "",
+   "colophon": "Powered by <a href=\"https://github.com/csbrandt/node-chlog\">node-chlog</a>",
    "code": ""
 }

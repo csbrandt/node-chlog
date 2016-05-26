@@ -12,6 +12,7 @@ var settings = require(process.cwd() + '/settings.json');
 require('./helpers');
 var publicDir = process.cwd() + '/public/';
 var postsDir = process.cwd() + '/post/';
+var postMetadata = require(postsDir + 'metadata.json');
 var filenames = fs.readdirSync(postsDir);
 var lessText = fs.readFileSync(process.cwd() + '/style/style.less', 'utf8');
 var posts = [];
@@ -19,11 +20,13 @@ var posts = [];
 del.sync(['!' + publicDir + '.*', publicDir + '**/*.html', publicDir + '**/*.css']);
 
 filenames.forEach(function(post) {
-   posts.push({
-      _id: shortid.generate(),
-      input: fs.readFileSync(postsDir + post, 'utf8'),
-      published: fs.statSync(postsDir + post).mtime
-   });
+   if (post.split('.').pop() === 'md') {
+      posts.push({
+         _id: shortid.generate(),
+         input: fs.readFileSync(postsDir + post, 'utf8'),
+         published: postMetadata[post.split('.')[0]].published
+      });
+   }
 });
 
 var doc = Generator.generateDoc(posts, settings);
