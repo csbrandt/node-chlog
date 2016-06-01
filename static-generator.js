@@ -12,23 +12,26 @@ var postTemplateSrc = fs.readFileSync(__dirname + '/template/post.html', "utf8")
 var POSTS_PER_PAGE = 8;
 var generator = exports;
 
-generator.generateDoc = function(posts, settings) {
-   var doc = {
-      'feed.rss': {
-         'content_type': 'application/rss+xml',
-         'data': this.generateFeed(posts, settings)
-      }
+generator.generateSite = function(posts, settings) {
+   var site = {
+      'root': {
+         'feed.rss': {
+            'content_type': 'application/rss+xml',
+            'data': this.generateFeed(posts, settings)
+         }
+      },
+      'posts': {}
    };
 
-   Object.assign(doc, this.generateTiles(posts, settings));
+   Object.assign(site.root, this.generateTiles(posts, settings));
 
    posts.forEach(function(post, name) {
       var postMap = this.generatePost(post, settings);
-      doc[Object.keys(postMap)[0]] = postMap[Object.keys(postMap)[0]];
+      site.posts[Object.keys(postMap)[0]] = postMap[Object.keys(postMap)[0]];
 
    }.bind(this));
 
-   return doc;
+   return site;
 };
 
 generator.generatePost = function(doc, settings) {
@@ -51,7 +54,7 @@ generator.generatePost = function(doc, settings) {
 
       var page = postTemplate(Object.assign({}, doc, settings));
 
-      post[doc._id + '.html'] = {
+      post[doc._id] = {
          "content_type": "text/html",
          "data": page
       };

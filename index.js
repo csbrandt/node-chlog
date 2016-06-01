@@ -17,22 +17,40 @@ var filenames = fs.readdirSync(postsDir);
 var lessText = fs.readFileSync(process.cwd() + '/style/style.less', 'utf8');
 var posts = [];
 
-del.sync(['!' + publicDir + '.*', publicDir + '**/*.html', publicDir + '**/*.css']);
+del.sync(['!' + publicDir + '.*', publicDir + '**/*']);
+
+for (var key in postMetadata) {
+   if (!postMetadata[key]._id) {
+      postMetadata[key]._id = shortid.generate();
+   }
+}
+
+fs.writeFileSync(postsDir + 'metadata.json', JSON.stringify(postMetadata));
 
 filenames.forEach(function(post) {
+   var postKey = post.split('.')[0];
    if (post.split('.').pop() === 'md') {
       posts.push({
-         _id: shortid.generate(),
+         _id: postMetadata[postKey]._id,
          input: fs.readFileSync(postsDir + post, 'utf8'),
-         published: postMetadata[post.split('.')[0]].published
+         published: postMetadata[postKey].published
       });
    }
 });
 
-var doc = Generator.generateDoc(posts, settings);
+var site = Generator.generateSite(posts, settings);
 
-for (var file in doc) {
-   fs.writeFileSync(publicDir + file, minify(doc[file].data, {
+for (var file in site.root) {
+   fs.writeFileSync(publicDir + file, minify(site.root[file].data, {
+      collapseWhitespace: true,
+      conservativeCollapse: true
+   }));
+}
+
+for (var post in site.posts) {
+   var postDir = publicDir + post;
+   fs.mkdirSync(postDir);
+   fs.writeFileSync(postDir + '/index.html', minify(site.posts[post].data, {
       collapseWhitespace: true,
       conservativeCollapse: true
    }));
@@ -50,5 +68,6 @@ imagemin([process.cwd() + '/image/*.{jpg,png}'], publicDir + 'image', {
 });
 
 less.render(lessText, function(e, output) {
+   fs.mkdirSync(publicDir + 'css');
    fs.writeFileSync(publicDir + 'css/style.css', cssmin(output.css));
 });
