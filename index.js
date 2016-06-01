@@ -41,10 +41,7 @@ filenames.forEach(function(post) {
 var site = Generator.generateSite(posts, settings);
 
 for (var file in site.root) {
-   fs.writeFileSync(publicDir + file, minify(site.root[file].data, {
-      collapseWhitespace: true,
-      conservativeCollapse: true
-   }));
+   fs.writeFileSync(publicDir + file, site.root[file].data);
 }
 
 for (var post in site.posts) {

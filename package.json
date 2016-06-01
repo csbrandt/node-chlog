@@ -1,37 +1,36 @@
 {
-   "name": "node-chlog",
-   "version": "2.0.0",
-   "description": "Static blog generator that converts Markdown files into individual blog posts with paginated indices.",
-   "main": "index.js",
-   "keywords": [
-      "static",
-      "generator",
-      "markdown"
-   ],
-   "repository": {
-      "type": "git",
-      "url": "https://github.com/csbrandt/node-chlog.git"
-   },
-   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-   },
-   "author": "csbrandt",
-   "license": "MIT",
-   "dependencies": {
-      "cheerio": "^0.20.0",
-      "cssmin": "^0.4.3",
-      "delete": "^0.3.2",
-      "handlebars": "^4.0.5",
-      "highlight.js": "^9.4.0",
-      "html-minifier": "^2.1.3",
-      "imagemin": "^5.1.3",
-      "imagemin-mozjpeg": "^6.0.0",
-      "imagemin-pngquant": "^5.0.0",
-      "less": "^2.7.1",
-      "lodash": "^4.13.1",
-      "marked": "^0.3.5",
-      "rss": "^1.2.1",
-      "sapo_ink": "git://github.com/sapo/Ink.git#3.1.10",
-      "shortid": "^2.2.6"
-   }
+  "name": "node-chlog",
+  "version": "2.0.1",
+  "description": "Static blog generator that converts Markdown files into individual blog posts with paginated indices.",
+  "main": "index.js",
+  "keywords": [
+    "static",
+    "generator",
+    "markdown"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csbrandt/node-chlog.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "csbrandt",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "cssmin": "^0.4.3",
+    "delete": "^0.3.2",
+    "handlebars": "^4.0.5",
+    "highlight.js": "^9.4.0",
+    "html-minifier": "^2.1.3",
+    "imagemin": "^5.1.3",
+    "imagemin-mozjpeg": "^6.0.0",
+    "imagemin-pngquant": "^5.0.0",
+    "less": "^2.7.1",
+    "lodash": "^4.13.1",
+    "marked": "^0.3.5",
+    "sapo_ink": "git://github.com/sapo/Ink.git#3.1.10",
+    "shortid": "^2.2.6"
+  }
 }

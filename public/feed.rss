@@ -1,1 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Example Site]]></title><description><![CDATA[An example description]]></description><link>www.example.com<generator>RSS for Node</generator><lastbuilddate>Wed, 01 Jun 2016 03:09:58 GMT</lastbuilddate><atom:link href="www.example.com/feed.rss" rel="self" type="application/rss+xml"><item><title><![CDATA[No title]]></title><link>www.example.com/ry1ffAjX.html<guid ispermalink="false">ry1ffAjX</guid><dc:creator><![CDATA[author]]></dc:creator><pubdate>Tue, 24 May 2016 22:13:50 GMT</pubdate></item><item><title><![CDATA[No title]]></title><link>www.example.com/SklJMfRjX.html<guid ispermalink="false">SklJMfRjX</guid><dc:creator><![CDATA[author]]></dc:creator><pubdate>Tue, 24 May 2016 22:13:50 GMT</pubdate></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+   <channel>
+      <title>
+         <![CDATA[Example Site]]>
+      </title>
+      <description>
+         <![CDATA[An example description]]>
+      </description>
+      <link>https://www.example.com</link>
+      <atom:link href="https://www.example.com/feed.rss" rel="self" type="application/rss+xml"/>
+      <item>
+         <title>
+            <![CDATA[Post 1]]>
+         </title>
+         <link>https://www.example.com/ry1ffAjX</link>
+         <guid isPermaLink="false">ry1ffAjX</guid>
+         <dc:creator>
+            <![CDATA[author]]>
+         </dc:creator>
+         <pubdate>Tue, May 24 2016 15:13:50</pubdate>
+      </item>
+      <item>
+         <title>
+            <![CDATA[Post 2]]>
+         </title>
+         <link>https://www.example.com/SklJMfRjX</link>
+         <guid isPermaLink="false">SklJMfRjX</guid>
+         <dc:creator>
+            <![CDATA[author]]>
+         </dc:creator>
+         <pubdate>Tue, May 24 2016 15:13:50</pubdate>
+      </item>
+   </channel>
+</rss>

@@ -3,11 +3,11 @@ var _ = require('lodash');
 var $ = require('cheerio');
 var Handlebars = require('handlebars');
 var marked = require('marked');
-var rss = require('rss');
 var highlight = require('highlight.js');
 var tileTemplateSrc = fs.readFileSync(__dirname + '/template/tiles.html', "utf8");
 var postTileTemplateSrc = fs.readFileSync(__dirname + '/template/posttile.html', "utf8");
 var postTemplateSrc = fs.readFileSync(__dirname + '/template/post.html', "utf8");
+var rssTemplateSrc = fs.readFileSync(__dirname + '/template/feed.rss', "utf8");
 
 var POSTS_PER_PAGE = 8;
 var generator = exports;
@@ -127,24 +127,21 @@ generator.generateContentPreview = function(post) {
 };
 
 generator.generateFeed = function(posts, settings) {
-   var feed = new rss({
+   var rssTemplate = Handlebars.compile(rssTemplateSrc);
+
+   return rssTemplate({
       title: settings.title,
       description: settings.description,
-      generator: "RSS for Node",
       feed_url: settings.host + "/feed.rss",
-      site_url: settings.host
+      site_url: settings.host,
+      posts: posts.map(function(post) {
+         return {
+            title: $(generator.generateContentPreview(post).preview).text(),
+            url: settings.host + "/" + post._id,
+            guid: post._id,
+            author: settings.author,
+            published: post.published
+         };
+      })
    });
-
-   posts.forEach(function(post, name) {
-      feed.item({
-         //title:
-         //description:
-         url: settings.host + "/" + post._id + ".html",
-         guid: post._id,
-         author: settings.author,
-         date: post.published
-      });
-   });
-
-   return feed.xml();
 };

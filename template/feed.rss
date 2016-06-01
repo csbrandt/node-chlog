@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+   <channel>
+      <title>
+         <![CDATA[{{title}}]]>
+      </title>
+      <description>
+         <![CDATA[{{description}}]]>
+      </description>
+      <link>{{site_url}}</link>
+      <atom:link href="{{feed_url}}" rel="self" type="application/rss+xml"/>
+      {{#each posts}}
+      <item>
+         <title>
+            <![CDATA[{{title}}]]>
+         </title>
+         <link>{{url}}</link>
+         <guid isPermaLink="false">{{guid}}</guid>
+         <dc:creator>
+            <![CDATA[{{author}}]]>
+         </dc:creator>
+         <pubdate>{{published}}</pubdate>
+      </item>
+      {{/each}}
+   </channel>
+</rss>
