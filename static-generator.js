@@ -72,11 +72,14 @@ generator.generateTiles = function(posts, settings) {
    var postsMarkup = '';
 
    posts.sort(function(a, b) {
-      if (a.published < b.published) {
+      var aDate = new Date(a.published);
+      var bDate = new Date(b.published);
+
+      if (aDate < bDate) {
          return 1;
       }
 
-      if (a.published > b.published) {
+      if (aDate > bDate) {
          return -1;
       }
 
