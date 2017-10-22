@@ -1,6 +1,6 @@
 {
   "name": "node-chlog",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "Static blog generator that converts Markdown files into individual blog posts with paginated indices.",
   "main": "index.js",
   "keywords": [

@@ -1,28 +1,72 @@
 @import "./style/github.less";
 @import (inline) "./node_modules/sapo_ink/dist/css/ink.min.css";
-
 @headerClearanceMargin: 4em;
 
-html,
-body {
+body,
+html {
    font-family: 'Open Sans', sans-serif;
 }
+
 small {
    font-size: 90%;
 }
+
+table {
+   padding: 0;
+}
+
+table tr {
+   border-top: 1px solid #cccccc;
+   background-color: white;
+   margin: 0;
+   padding: 0;
+}
+
+table tr:nth-child(2n) {
+   background-color: #f8f8f8;
+}
+
+table tr th {
+   font-weight: bold;
+   border: 1px solid #cccccc;
+   text-align: left;
+   margin: 0;
+   padding: 6px 13px;
+}
+
+table tr td {
+   border: 1px solid #cccccc;
+   text-align: left;
+   margin: 0;
+   padding: 6px 13px;
+}
+
+table tr td:first-child,
+table tr th:first-child {
+   margin-top: 0;
+}
+
+table tr td:last-child,
+table tr th:last-child {
+   margin-bottom: 0;
+}
+
 article > pre {
    background-color: rgb(247, 247, 247);
    padding: 0.8em;
    font-size: 0.8em;
    border-radius: 3px;
 }
+
 .column-group > article[class*=large-] {
    margin: 0 auto;
    float: none;
 }
+
 .modal-dialog {
    margin-top: @headerClearanceMargin;
 }
+
 .box {
    position: relative;
    border-radius: 2px;
@@ -36,14 +80,17 @@ article > pre {
       color: whitesmoke;
    }
 }
+
 .content-preview {
    h1 {
       color: #ffffff;
    }
 }
+
 .ink-navigation ul.menu.white {
    background-color: rgb(240, 240, 240);
 }
+
 .posttile {
    height: 300px;
    margin-bottom: 1em;
@@ -68,10 +115,12 @@ article > pre {
       }
    }
 }
+
 .image-screen {
    position: relative;
    height: 100%;
 }
+
 .image-screen-bgimage {
    position: absolute;
    top: 0;
@@ -84,6 +133,7 @@ article > pre {
    background-size: cover;
    background-clip: border-box;
 }
+
 header.ink-grid {
    background-size: cover;
    background-repeat: no-repeat;
@@ -95,7 +145,7 @@ header.ink-grid {
 
    .content-preview {
       background: rgba(0,0,0,.4);
-      padding-bottom: .3em;
+      padding-bottom: 0.3em;
 
       h1 {
          margin: 0;
@@ -108,6 +158,7 @@ header.ink-grid {
       background: rgba(0,0,0,.4);
    }
 }
+
 #content {
    padding-top: 1em;
 }
@@ -127,9 +178,11 @@ header.ink-grid {
       padding: 0 0.2em;
    }
 }
+
 #page {
    padding-bottom: 2em;
 }
+
 .next-page {
    padding-left: 1.5em;
 }
