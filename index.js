@@ -17,7 +17,7 @@ var filenames = fs.readdirSync(postsDir);
 var lessText = fs.readFileSync(process.cwd() + '/style/style.less', 'utf8');
 var posts = [];
 
-del.sync(['!' + publicDir + '.*', publicDir + '**/*']);
+del.sync(['!' + publicDir + '.*', publicDir + '**/*', '!' + publicDir + 'demo', '!' + publicDir + 'demo/**']);
 
 for (var key in postMetadata) {
    if (!postMetadata[key]._id) {
